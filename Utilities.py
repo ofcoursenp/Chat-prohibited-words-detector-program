@@ -14,10 +14,22 @@ def user_ban(username):
         f.write(f"\n{str(username)} is banned")
 
 
+words_count = 0
+
+
 def check_word_is_prohibited(word, username):
+    global words_count
     ind = -1
     for words in range(1, len(word) + 1):
         ind += 1
         if word[ind] in prohibited_words:
             print("Do not enter prohibited words")
-            user_ban(username=username)
+            words_count = words_count + 1
+            if words_count == 3:
+                user_ban(username)
+                print("User is banned")
+                words_count = 0
+                exit()
+    return "Prohibited words detected"
+
+
