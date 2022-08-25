@@ -30,6 +30,12 @@ def check_word_is_prohibited(word, username):
                 print("User is banned")
                 words_count = 0
                 exit()
-    return "Prohibited words detected"
+    return "-Logged in Message_text.txt"
+
+
+def send_log(text, username):
+    with open("Message_text", "a") as f:
+        f.write(f"\n{username}: {text}")
+
 
 
