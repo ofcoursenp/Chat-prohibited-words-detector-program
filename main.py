@@ -6,7 +6,6 @@ fh = open("User_banned.txt", "r")
 word = user_find
 s = " "
 count = 1
-https://github.com/ofcoursenp/Chat-prohibited-words-detector-program/blob/main/main.py
 while s:
     s = fh.readline()
     L = s.split()
@@ -18,8 +17,11 @@ while s:
 # check if word is prohibited,Library file used Utilities.py
 user_msg = input("> ")
 while user_find != "Quit_program":
+    Utilities.send_log(text=user_msg, username=user_find)
     user_msg = input("> ").lower()
     user_msg_split = user_msg.split()
-    Utilities.check_word_is_prohibited(user_msg_split, user_find)
+    print(Utilities.check_word_is_prohibited(user_msg_split, user_find))
+
 
 # end
+
